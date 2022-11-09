@@ -8,6 +8,7 @@ import {
   Param,
   Post,
   Put,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { createItemDto } from './dto/create-item.dto';
 import { ItemsService } from './items.service';
@@ -22,9 +23,9 @@ export class ItemsController {
   }
 
   @Get(':id')
-  findOne(@Param() param): Promise<Item> {
-    throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
-    // return this.itemService.findOne(param.id);
+  findOne(@Param('id') id): Promise<Item> {
+    // throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
+    return this.itemService.findOne(id);
   }
 
   @Post()
