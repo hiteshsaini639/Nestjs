@@ -13,7 +13,7 @@ export class ItemsService {
 
   async findAll(): Promise<Item[]> {
     const userId = this.requestService.getUserId();
-    console.log('UserId', userId);
+    console.log('UserId', userId, 'In find All service');
     return await this.itemModel.find();
   }
 
