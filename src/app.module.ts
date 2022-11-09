@@ -14,9 +14,3 @@ import config from './config/keys';
   providers: [AppService],
 })
 export class AppModule {}
-// imports: [
-//   MongooseModule.forRoot({
-//      uri: 'mongodb://admin:admin@localhost:30000',
-//      dbName: 'data'
-//   }),
-// ]
