@@ -16,6 +16,7 @@ import { ItemsService } from './items.service';
 import { Item } from './interface/item.interface';
 import { ItemDecorator } from './decorator/item.decorator';
 import { AuthGuard } from './gaurds/auth.gaurd';
+import { FreezePipe } from './pipes/freeze.pipe';
 
 @Controller('items')
 export class ItemsController {
@@ -40,7 +41,7 @@ export class ItemsController {
   }
 
   @Post()
-  create(@Body() createDto: createItemDto): Promise<Item> {
+  create(@Body(new FreezePipe()) createDto: createItemDto): Promise<Item> {
     return this.itemService.create(createDto);
   }
 
