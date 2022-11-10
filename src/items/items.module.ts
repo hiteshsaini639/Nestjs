@@ -7,6 +7,7 @@ import { AuthenticationMiddleware } from './middleware/auth.middleware';
 import { RequestService } from './request.service';
 import { AuthGuard } from './gaurds/auth.gaurd';
 import { LoggingInterCeptor } from './interceptor/logging.inteceptor';
+import { HttpExceptionFilter } from './filters/http-exception.filter';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: 'Item', schema: ItemSchema }])],
@@ -25,6 +26,10 @@ import { LoggingInterCeptor } from './interceptor/logging.inteceptor';
       scope: Scope.REQUEST,
       useClass: LoggingInterCeptor,
     },
+    // {
+    //   provide: 'APP_FILTER',
+    //   useClass: HttpExceptionFilter,
+    // },
   ],
 })
 export class ItemModule implements NestModule {

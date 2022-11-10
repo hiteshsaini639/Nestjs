@@ -21,6 +21,7 @@ async function bootstrap() {
       },
     }),
   );
+
   //for global interceptor
   // app.useGlobalInterceptors(new LoggingInterCeptor());
 
